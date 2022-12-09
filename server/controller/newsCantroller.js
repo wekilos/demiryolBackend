@@ -46,11 +46,12 @@ const fs = require('fs');
   } 
 
   const getAll = (req,res)=>{
+    const {active} = req.query;
     News.findAll(
         {
-        // where:{
-        //     deleted:false
-        // },
+        where:{
+            active:active
+        },
         order: [
             ['id', 'DESC'],
         ]
@@ -130,6 +131,46 @@ const fs = require('fs');
     
   }
 
+  const DisActiveted = async(req,res)=>{
+    const { id } = req.params;
+    const news = await News.findOne({where:{id:id}});
+    if(!news){
+        res.send("BU ID boyuncha news yok!")
+    }else{
+        News.update({
+            active:false
+        },
+        {
+            where:{
+                id:id
+            }
+        }).then((data)=>{
+            res.send("Dis Activeted!")
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+  }
+  const Activeted = async(req,res)=>{
+    const { id } = req.params;
+    const news = await News.findOne({where:{id:id}});
+    if(!news){
+        res.send("BU ID boyuncha news yok!")
+    }else{
+        News.update({
+            active:true
+        },
+        {
+            where:{
+                id:id
+            }
+        }).then((data)=>{
+            res.send("Dis Activeted!")
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+  }
   const Delete = async(req,res)=>{
         let data = await News.findOne({where:{id:req.params.id}})
 
@@ -155,6 +196,8 @@ const fs = require('fs');
   exports.create = create;
   exports.getAll = getAll;
   exports.getOne = getOne;
+  exports.DisActiveted = DisActiveted;
+  exports.Activeted =Activeted;
   exports.update = update;
   exports.updateFile = updateFile;
   exports.Delete = Delete;

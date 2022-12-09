@@ -4,6 +4,7 @@ const mailSend = require("../functions/mailSend");
 const OrderDocs = require("../models/orderDocs");
 const Orders = require("../models/orders");
 const fs = require('fs');
+const Users = require("../models/users");
 const Op = Sequelize.Op;
 
 const orders_tb = async (req, res) => {
@@ -28,11 +29,15 @@ const orders_tb = async (req, res) => {
             {
                 model:OrderDocs,
                 attributes:["id","title","fileName","active","OrderId"]
+            },
+            {
+                model:Users,
+                attributes:["id",'fname','companyName','phoneNumber','email']
             }
         ],
         
             where:{
-                [Op.or]:[{active:Active},{status:status}]
+                [Op.and]:[{active:Active},{status:status}]
             },
         
         order: [
@@ -45,6 +50,38 @@ const orders_tb = async (req, res) => {
         res.json(err);
     })
   }
+ 
+  const getAllDisActiveOrders = async(req,res)=>{
+    const {active} = req.query
+    // let Active = active? active : true;
+    Orders.findAll({
+        include:[
+            {
+                model:OrderDocs,
+                attributes:["id","title","fileName","active","OrderId"]
+            },
+            {
+                model:Users,
+                attributes:["id",'fname','companyName','phoneNumber','email']
+            }
+        ],
+        
+            where:{
+                [Op.and]:[{active:false}]
+            },
+        
+        order: [
+            ['id', 'DESC'],
+        ]
+    }).then((data)=>{
+        res.send(data);
+    }).catch((err)=>{
+        console.log(err);
+        res.json(err);
+    })
+  }
+ 
+  
 
   const getAllOrdersOneUser = async(req,res)=>{
     const {UserId} = req.params;
@@ -87,6 +124,8 @@ const orders_tb = async (req, res) => {
             status_tm:"Garaşylýar",
             status_ru:"Garaşylýar",
             status_en:"Garaşylýar",
+            payBefore:0,
+            payment:0,
             UserId:userId,
             active:true,
             deleted:false
@@ -158,8 +197,7 @@ const makeOrder = async(req,res)=>{
                         deleted:false,
                     }).then(()=>{
 
-                        // i+1 == filess.length && 
-                        res.json("Succesfully!")
+                        i+1 == filess.length && res.json("Succesfully!")
                     }).catch((err)=>{
                         console.log(err);
                         res.json({err:err})
@@ -210,8 +248,7 @@ const makePayment = async(req,res)=>{
                         deleted:false,
                     }).then(()=>{
 
-                        // i+1 == filess.length && 
-                        res.json("Succesfully!")
+                        i+1 == filess.length && res.json("Succesfully!")
                     }).catch((err)=>{
                         console.log(err);
                         res.json({err:err})
@@ -264,6 +301,7 @@ const DisCancelOrder = async(req,res)=>{
 
   exports.orders_tb = orders_tb;
   exports.getAllOrders = getAllOrders;
+  exports.getAllDisActiveOrders = getAllDisActiveOrders;
   exports.getAllOrdersOneUser = getAllOrdersOneUser;
   exports.createOrder = createOrder;
   exports.makeOrder = makeOrder;

@@ -24,8 +24,11 @@ const Op = Sequelize.Op;
 
 
   const getAllUser = async(req,res)=>{
-
+    const {active} = req.query;
     Users.findAll({
+      where:{
+        active:active
+      },
       order: [
         ['id', 'DESC'],
     ]

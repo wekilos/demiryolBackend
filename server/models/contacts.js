@@ -18,6 +18,7 @@ var Contacts = sequelize.define(
         text:Sequelize.TEXT,
         email:Sequelize.TEXT,
         name:Sequelize.STRING,
+        came:{type:Sequelize.BOOLEAN,default:true},
         active:{type:Sequelize.BOOLEAN,default:true},
         deleted:{type:Sequelize.BOOLEAN,default:false},
     },

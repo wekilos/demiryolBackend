@@ -19,6 +19,28 @@ const contacts_tb = async (req, res) => {
     res.json(response);
   };
 
+  const AllMessages = async(req,res)=>{
+    const { came } =req.query;
+    Contacts.findAll({
+        include:[
+            {
+                model:Users,
+                attributes:["id",'fname','companyName','phoneNumber','email']
+            }
+        ],
+        where:{
+            came:came
+        },
+        order: [
+            ['id', 'DESC'],
+        ]
+    }).then((data)=>{
+        res.send(data);
+    }).catch((err)=>{
+        console.log(err);
+        res.json({error:err});
+    })
+  }
 
 const ContactSend = async(req,res)=>{
    
@@ -40,6 +62,7 @@ const ContactSend = async(req,res)=>{
         email:email,
         name:name,
         UserId:id,
+        came:true,
         active:true,
         deleted:false,
     }).then((data)=>{
@@ -63,11 +86,12 @@ const SendResponse = async(req,res)=>{
         }
         mailSend.SendMail(data);
         Contacts.create({
-            subject:"Sizin Jogabynyz.",
+            subject:subject,
             text:text,
             email:message.email,
             name:message.name,
             UserId:message.UserId,
+            came:false,
             active:true,
             deleted:false,
         }).then((data)=>{
@@ -102,6 +126,7 @@ const Delete = async(req,res)=>{
 
 
 exports.contacts_tb = contacts_tb;
+exports.AllMessages = AllMessages;
 exports.ContactSend = ContactSend;
 exports.SendResponse = SendResponse;
 exports.Delete = Delete;

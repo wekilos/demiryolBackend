@@ -98,12 +98,15 @@ router.patch("/admin/Active/:id",AdminControllers.Active);
 router.get("/news",NewsControllers.getAll);
 router.get("/news/:id",NewsControllers.getOne);
 router.post("/news/create",NewsControllers.create);
+router.patch("/news/disActive/:id",NewsControllers.DisActiveted);
+router.patch("/news/active/:id",NewsControllers.Activeted);
 router.patch("/news/update",NewsControllers.update);
 router.post("/news/update/file",NewsControllers.updateFile)
 router.delete("/news/delete/:id",NewsControllers.Delete);
 
 
 // Send Mail
+router.get("/contact/all",ContactControllers.AllMessages);
 router.post("/contact/send",ContactControllers.ContactSend);
 router.post("/contact/response",ContactControllers.SendResponse);
 router.delete("/contact/delete/:id",ContactControllers.Delete);
@@ -111,6 +114,7 @@ router.delete("/contact/delete/:id",ContactControllers.Delete);
 
 // Order 
 router.get("/order/all",OrderControllers.getAllOrders);
+router.get("/order/allDisActive",OrderControllers.getAllDisActiveOrders);
 router.get("/order/all/:UserId",OrderControllers.getAllOrdersOneUser);
 router.post("/order/create",OrderControllers.createOrder);
 router.post("/order/make",OrderControllers.makeOrder);
