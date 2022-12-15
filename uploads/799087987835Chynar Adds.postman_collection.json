@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "2ef91bac-ceb2-4e9c-8929-5e87c6b34db3",
+		"name": "Chynar Adds",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ADDS Copy",
+			"item": [
+				{
+					"name": "get all Adds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.85.122.39:8080/api/adds/all",
+							"protocol": "http",
+							"host": [
+								"95",
+								"85",
+								"122",
+								"39"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"adds",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all Adds Full-screen",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.85.122.39:8080/api/adds/fullScreen?WelayatlarId=3",
+							"protocol": "http",
+							"host": [
+								"95",
+								"85",
+								"122",
+								"39"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"adds",
+								"fullScreen"
+							],
+							"query": [
+								{
+									"key": "WelayatlarId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all Adds in Markets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.85.122.39:8080/api/adds/inMarkets?WelayatlarId=3",
+							"protocol": "http",
+							"host": [
+								"95",
+								"85",
+								"122",
+								"39"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"adds",
+								"inMarkets"
+							],
+							"query": [
+								{
+									"key": "WelayatlarId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all Adds in Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://95.85.122.39:8080/api/adds/inProducts?WelayatlarId=1",
+							"protocol": "http",
+							"host": [
+								"95",
+								"85",
+								"122",
+								"39"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"adds",
+								"inProducts"
+							],
+							"query": [
+								{
+									"key": "WelayatlarId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_tm",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "name_ru",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "name_en",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "WelayatlarId",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "marketId",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "endDate",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://95.85.122.39:8080/api/adds/create",
+							"protocol": "http",
+							"host": [
+								"95",
+								"85",
+								"122",
+								"39"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"adds",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update adds",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name_tm",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "name_ru",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "name_en",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "WelayatlarId",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "marketId",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "endDate",
+									"value": "",
+									"type": "default"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://95.85.122.39:8080/api/adds/update/4",
+							"protocol": "http",
+							"host": [
+								"95",
+								"85",
+								"122",
+								"39"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"adds",
+								"update",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update adds Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "img_tm",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "img_ru",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "img_en",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://95.85.122.39:8080/api/adds/updateIMG/4",
+							"protocol": "http",
+							"host": [
+								"95",
+								"85",
+								"122",
+								"39"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"adds",
+								"updateIMG",
+								"4"
+							],
+							"query": [
+								{
+									"key": "img_tm",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "img_ru",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "img_en",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

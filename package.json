@@ -1,38 +1,40 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "chynar",
-  "main": "app.js",
-  "scripts": {
-    "build": "bower install && grunt build",
-    "start": "nf start"
-  },
-  "author": "wekil yazgulyyew",
-  "license": "ISC",
-  "engines": {
-    "node": "14.x"
-  },
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
-    "certbot": "^5.0.3",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-fileupload": "^1.2.1",
-    "firebase-admin": "^10.0.2",
-    "fs": "0.0.1-security",
-    "helmet": "^4.6.0",
-    "jsonwebtoken": "^8.5.1",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.2",
-    "node-cache": "^5.1.2",
-    "node-fetch": "^2.6.6",
-    "nodemailer": "^6.8.0",
-    "path": "^0.12.7",
-    "pg": "^8.6.0",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.6.2",
-    "sequelize-cli": "^6.2.0",
-    "xlsx": "^0.18.5"
-  }
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "chynar",
+    "main": "app.js",
+    "scripts": {
+        "build": "bower install && grunt build",
+        "start": "nf start"
+    },
+    "author": "wekil yazgulyyew",
+    "license": "ISC",
+    "engines": {
+        "node": "16.x"
+    },
+    "dependencies": {
+        "axios": "^1.2.1",
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.19.0",
+        "certbot": "^5.0.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.17.1",
+        "express-fileupload": "^1.2.1",
+        "firebase-admin": "^10.0.2",
+        "fs": "0.0.1-security",
+        "helmet": "^4.6.0",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.2",
+        "node-cache": "^5.1.2",
+        "node-fetch": "^2.6.6",
+        "nodemailer": "^6.8.0",
+        "path": "^0.12.7",
+        "pg": "^8.6.0",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.6.2",
+        "sequelize-cli": "^6.2.0",
+        "xlsx": "^0.18.5"
+    }
 }
